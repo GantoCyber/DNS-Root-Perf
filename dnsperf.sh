@@ -1,87 +1,74 @@
 #!/usr/bin/env bash
 
-# AUTHOR: Engin YUCE <enginy88@gmail.com>
-# DESCRIPTION: Shell script to test the performance of the most popular public DNS resolvers from your location.
+# AUTHOR: GantoCyber (XMPP / Jabber) <ganto@nixnet.services> thanks to Engin YUCE <enginy88@gmail.com>
+# DESCRIPTION: Shell script to test the performance of the 13 DNS root servers from your location.
 # VERSION: 1.0
 # LICENSE: Copyright 2020 Engin YUCE. Licensed under the Apache License, Version 2.0.
 
+echo "Be sure that you are alone in this network for this test and that you are connected by cable to your network (no wifi, it is not stable), this will give real results."
+
 # Test repeat count.
-TEST_COUNT=10
+TEST_COUNT=2
 
 # Providers to test. Duplicated providers are ok!
 PROVIDERS="
-176.103.130.130##AdGuard##(dns.adguard.com)
-23.253.163.53##AlernateDNS##(dns2.alternate-dns.com)
-185.228.168.9##CleanBrowsing##(security-filter-dns.cleanbrowsing.org)
-1.1.1.1##Cloudflare##(one.one.one.one)
-8.26.56.26##Comodo##(ns1.recursive.dnsbycomodo.com)
-84.200.69.80##DNS.Watch##(resolver1.dns.watch)
-216.146.35.35##DynDNS##(resolver1.dyndnsinternetguide.com)
-37.235.1.174##FreeDNS-Frankfurt##(resolver3.freedns.zone)
-37.235.1.174##FreeDNS-Vienna##(resolver.freedns.zone)
-80.80.80.80##Freenom##(-)
-8.8.8.8##Google##(dns.google)
-74.82.42.42##Hurricane-Electric##(ordns.he.net)
-209.244.0.3##Level3-CenturyLink##(resolver1.level3.net.)
-4.2.2.1##Level3-GTEI##(b.resolvers.level3.net)
-156.154.70.1##Neustar-DNSAdvantage##(-)
-199.85.126.10##Norton-ConnectSafe##(-)
-208.67.222.222##OpenDNS##(dns.opendns.com)
-94.16.114.254##OpenNIC-Frankfurt##(ns11.de.dns.opennic.glue)
-91.217.137.37##OpenNIC-Moscow##(ns5.ru.dns.opennic.glue)
-109.69.8.51##PuntCAT##(-)
-9.9.9.9##Quad9##(dns.quad9.net)
-195.46.39.39##SafeDNS##(dns1.safedns.com)
-91.239.100.100##UncensoredDNS##(anycast.censurfridns.dk)
-64.6.64.6##VeriSign##(recpubns1.nstld.net)
-77.88.8.1##Yandex##(dns.yandex.ru)
-114.114.114.114##114DNS[CN]##(public1.114dns.com)
-223.5.5.5##AliDNS[CN]##(public1.alidns.com)
-180.76.76.76##Baidu[CN]##(public-dns-a.baidu.com)
-1.2.4.8##CNNIC-SDNS[CN]##(public1.sdns.cn)
-101.226.4.6##DNSpai[CN]##(-)
-119.29.29.29##DNSPod[CN]##(pdns.dnspod.cn)
-117.50.10.10##OneDNS[CN]##(-)
+198.41.0.4##Verisign
+199.9.14.201##University_of_Southern_California
+192.33.4.12##Cogent_Communications
+199.7.91.13##University_of_Maryland
+192.203.230.10##NASA
+192.5.5.241##Internet_Systems_Consortium_Inc.
+192.112.36.4##US_Department_of_Defense
+198.97.190.53##US_Army
+192.36.148.17##Netnod
+192.58.128.30##Verisign
+193.0.14.129##RIPE
+199.7.83.42##ICANN
+202.12.27.33##WIDE
 "
 
-# Depreciated providers are just for historic records!
-DEPRECIATED_PROVIDERS="
-45.77.165.194##Fourth-Estate-Miami##(accuracy.ns.fourthestate.co)
-45.32.36.36##Fourth-Estate-Tokyo##(independence.ns.fourthestate.co)
-81.218.119.11##GreenTeamDNS##(-)
-184.169.143.224##Securly##(-)
-208.76.50.50##SmartViper##(-)
-99.192.182.200##TentaDNS-ICANN##(-)
-99.192.182.100##TentaDNS-OpenNIC##(-)
-"
-
-# Domains to test. Duplicated domains are ok! (Fetched & selected from Top Sites lists provided by Alexa on May 2020.)
+# Domains to test. Duplicated domains are ok! (Fetched & selected from Top Sites lists provided by Cisco Umbrella)
 DOMAINS="
-Adobe.com
-Amazon.com
-Apple.com
-Bing.com
-Dropbox.com
-Ebay.com
-Facebook.com
-Google.com
-Instagram.com
-Linkedin.com
-Live.com
-Microsoft.com
-Msn.com
-Netflix.com
-Office.com
-Reddit.com
-Spotify.com
-Stackoverflow.com
-Twitch.tv
-Twitter.com
-Whatsapp.com
-Wikipedia.org
-Yahoo.com
-Youtube.com
-Zoom.us
+netflix.com
+google.com
+cloud.netflix.com
+prod.cloud.netflix.com
+ftl.netflix.com
+prod.ftl.netflix.com
+nrdp.prod.cloud.netflix.com
+microsoft.com
+ichnaea.netflix.com
+netflix.net
+partner.netflix.net
+prod.partner.netflix.net
+preapp.prod.partner.netflix.net
+data.microsoft.com
+nrdp-ipv6.prod.ftl.netflix.com
+www.google.com
+events.data.microsoft.com
+windowsupdate.com
+ctldl.windowsupdate.com
+live.com
+settings-win.data.microsoft.com
+safebrowsing.googleapis.com
+microsoftonline.com
+login.microsoftonline.com
+officeapps.live.com
+apple.com
+prod.netflix.com
+push.prod.netflix.com
+clientservices.googleapis.com
+office.com
+bing.com
+mp.microsoft.com
+update.googleapis.com
+facebook.com
+office365.com
+self.events.data.microsoft.com
+doubleclick.net
+g.doubleclick.net
+nexusrules.officeapps.live.com
+amazonaws.com
 "
 
 # BELOW THAT LINE THERE BE DRAGONS!
