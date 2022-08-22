@@ -44,7 +44,6 @@ prod.partner.netflix.net
 preapp.prod.partner.netflix.net
 data.microsoft.com
 nrdp-ipv6.prod.ftl.netflix.com
-www.google.com
 events.data.microsoft.com
 windowsupdate.com
 ctldl.windowsupdate.com
