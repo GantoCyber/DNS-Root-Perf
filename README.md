@@ -5,62 +5,61 @@ Shell script to test the performance of the most popular public DNS resolvers fr
 # Generic Informations
 
 Includes DNS root servers by default: 
-Verisign (198.41.0.4)
-University of Southern California (199.9.14.201)
-Cogent Communications (192.33.4.12) 
-University of Maryland (199.7.91.13)
-NASA (192.203.230.10)
-Internet Systems Consortium Inc. (192.5.5.241)
-US Department of Defense (192.112.36.4)
-US Army (198.97.190.53)
-Netnod (192.36.148.17)
-Verisign (192.58.128.30)
-RIPE (193.0.14.129)
-ICANN (199.7.83.42)
-WIDE (202.12.27.33)
+*Verisign (198.41.0.4)
+*University of Southern California (199.9.14.201)
+*Cogent Communications (192.33.4.12) 
+*University of Maryland (199.7.91.13)
+*NASA (192.203.230.10)
+*Internet Systems Consortium Inc. (192.5.5.241)
+*US Department of Defense (192.112.36.4)
+*US Army (198.97.190.53)
+*Netnod (192.36.148.17)
+*Verisign (192.58.128.30)
+*RIPE (193.0.14.129)
+*ICANN (199.7.83.42)
+*WIDE (202.12.27.33)
 
 Domains included to test by default:
-netflix.com
-google.com
-cloud.netflix.com
-prod.cloud.netflix.com
-ftl.netflix.com
-prod.ftl.netflix.com
-nrdp.prod.cloud.netflix.com
-microsoft.com
-ichnaea.netflix.com
-netflix.net
-partner.netflix.net
-prod.partner.netflix.net
-preapp.prod.partner.netflix.net
-data.microsoft.com
-nrdp-ipv6.prod.ftl.netflix.com
-www.google.com
-events.data.microsoft.com
-windowsupdate.com
-ctldl.windowsupdate.com
-live.com
-settings-win.data.microsoft.com
-safebrowsing.googleapis.com
-microsoftonline.com
-login.microsoftonline.com
-officeapps.live.com
-apple.com
-prod.netflix.com
-push.prod.netflix.com
-clientservices.googleapis.com
-office.com
-bing.com
-mp.microsoft.com
-update.googleapis.com
-facebook.com
-office365.com
-self.events.data.microsoft.com
-doubleclick.net
-g.doubleclick.net
-nexusrules.officeapps.live.com
-amazonaws.com
-"
+*netflix.com
+*google.com
+*cloud.netflix.com
+*prod.cloud.netflix.com
+*ftl.netflix.com
+*prod.ftl.netflix.com
+*nrdp.prod.cloud.netflix.com
+*microsoft.com
+*ichnaea.netflix.com
+*netflix.net
+*partner.netflix.net
+*prod.partner.netflix.net
+*preapp.prod.partner.netflix.net
+*data.microsoft.com
+*nrdp-ipv6.prod.ftl.netflix.com
+*www.google.com
+*events.data.microsoft.com
+*windowsupdate.com
+*ctldl.windowsupdate.com
+*live.com
+*settings-win.data.microsoft.com
+*safebrowsing.googleapis.com
+*microsoftonline.com
+*login.microsoftonline.com
+*officeapps.live.com
+*apple.com
+*prod.netflix.com
+*push.prod.netflix.com
+*clientservices.googleapis.com
+*office.com
+*bing.com
+*mp.microsoft.com
+*update.googleapis.com
+*facebook.com
+*office365.com
+*self.events.data.microsoft.com
+*doubleclick.net
+*g.doubleclick.net
+*nexusrules.officeapps.live.com
+*amazonaws.com
 
 # Requirements 
 
