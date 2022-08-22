@@ -8,7 +8,7 @@
 echo "Be sure that you are alone in this network for this test and that you are connected by cable to your network (no wifi, it is not stable), this will give real results."
 
 # Test repeat count.
-TEST_COUNT=3
+TEST_COUNT=5
 
 # Providers to test. Duplicated providers are ok!
 PROVIDERS="
@@ -76,61 +76,61 @@ command -v bc > /dev/null || { echo "bc was not found. Please install bc."; exit
 { command -v drill > /dev/null && dig=drill; } || { command -v dig > /dev/null && dig=dig; } || { echo "dig was not found. Please install dnsutils."; exit 1; }
 
 TOTAL_DOMAINS=0
-printf "%-24s" ""
+printf "%-36s" ""
 for i in $DOMAINS; do
-	TOTAL_DOMAINS=$((TOTAL_DOMAINS + 1))
+        TOTAL_DOMAINS=$((TOTAL_DOMAINS + 1))
 done
 
-printf "%-12s" "Average"
-printf "%-12s" "Timeout"
-printf "%-12s" "Reliabiliy"
+printf "%-24s" "Average"
+printf "%-24s" "Timeout"
+printf "%-24s" "Reliabiliy"
 echo ""
 
 for PROVIDER in $PROVIDERS; do
-	PROVIDER_IP=${PROVIDER%%##*}
-	PROVIDER_NAME_FQDN=${PROVIDER#*##}
-	PROVIDER_NAME=${PROVIDER_NAME_FQDN%%##*}
-	PROVIDER_FQDN=${PROVIDER_NAME_FQDN##*##}
-	TOTAL_TIME=0
-	TIMEOUT_COUNT=0
+        PROVIDER_IP=${PROVIDER%%##*}
+        PROVIDER_NAME_FQDN=${PROVIDER#*##}
+        PROVIDER_NAME=${PROVIDER_NAME_FQDN%%##*}
+        PROVIDER_FQDN=${PROVIDER_NAME_FQDN##*##}
+        TOTAL_TIME=0
+        TIMEOUT_COUNT=0
 
-	printf "%-24s" "$PROVIDER_NAME"
+        printf "%-36s" "$PROVIDER_NAME"
 
-	for DOMAIN in $DOMAINS; do
+        for DOMAIN in $DOMAINS; do
 
-		for (( i=1; i<=$TEST_COUNT; i++ )); do
+                for (( i=1; i<=$TEST_COUNT; i++ )); do
 
-			TIME=$($dig +tries=1 +time=2 +noall +stats @$PROVIDER_IP $DOMAIN |grep "Query time:" | cut -d : -f 2- | cut -d " " -f 2)
-			if [ -z "$TIME" ]; then
-				TIMEOUT_COUNT=$((TIMEOUT_COUNT + 1))
-				#echo -e "\n\t DEBUG: TIMEOUT! $DOMAIN"
-				continue
-			elif [ "x$TIME" = "x0" ]; then
-				TIME=1
-			fi
-			TOTAL_TIME=$((TOTAL_TIME + TIME))
-			if [[ $TIME -ge 1000 ]]; then
-				:
-				#echo -e "\n\t DEBUG: LONG-RTT! ($TIME ms) $DOMAIN"
-			fi
-		done
+                        TIME=$($dig +tries=1 +time=2 +noall +stats @$PROVIDER_IP $DOMAIN |grep "Query time:" | cut -d : -f 2- | cut -d " " -f 2)
+                        if [ -z "$TIME" ]; then
+                                TIMEOUT_COUNT=$((TIMEOUT_COUNT + 1))
+                                #echo -e "\n\t DEBUG: TIMEOUT! $DOMAIN"
+                                continue
+                        elif [ "x$TIME" = "x0" ]; then
+                                TIME=1
+                        fi
+                        TOTAL_TIME=$((TOTAL_TIME + TIME))
+                        if [[ $TIME -ge 1000 ]]; then
+                                :
+                                #echo -e "\n\t DEBUG: LONG-RTT! ($TIME ms) $DOMAIN"
+                        fi
+                done
 
-	done
+        done
 
-	TOTAL_TEST_COUNT=$(($TOTAL_DOMAINS * $TEST_COUNT))
-	if [[ "$TIMEOUT_COUNT" -eq "$TOTAL_TEST_COUNT" ]]; then
-		AVERAGE="N/A"
-		RELIABLILITY=0
-	else
-		AVERAGE=$(bc -lq <<< "scale=2; $TOTAL_TIME / ( $TOTAL_TEST_COUNT - $TIMEOUT_COUNT )")
-		RELIABLILITY=$(bc -lq <<< "scale=2; 100 - ((100 * $TIMEOUT_COUNT) / $TOTAL_TEST_COUNT)")
-	fi
+        TOTAL_TEST_COUNT=$(($TOTAL_DOMAINS * $TEST_COUNT))
+        if [[ "$TIMEOUT_COUNT" -eq "$TOTAL_TEST_COUNT" ]]; then
+                AVERAGE="N/A"
+                RELIABLILITY=0
+        else
+                AVERAGE=$(bc -lq <<< "scale=2; $TOTAL_TIME / ( $TOTAL_TEST_COUNT - $TIMEOUT_COUNT )")
+                RELIABLILITY=$(bc -lq <<< "scale=2; 100 - ((100 * $TIMEOUT_COUNT) / $TOTAL_TEST_COUNT)")
+        fi
 
-	printf "%-12s" "$AVERAGE ms"
-	printf "%-12s" "$TIMEOUT_COUNT/$TOTAL_TEST_COUNT"
-	printf "%-12s" "%$RELIABLILITY"
-	printf "%-18s" "| $PROVIDER_IP"
-	echo "$PROVIDER_FQDN"
+        printf "%-24s" "$AVERAGE ms"
+        printf "%-24s" "$TIMEOUT_COUNT/$TOTAL_TEST_COUNT"
+        printf "%-24s" "%$RELIABLILITY"
+        printf "%-24s" "| $PROVIDER_IP"
+        echo "$PROVIDER_FQDN"
 done
 
 exit 0;
