@@ -4,7 +4,7 @@ Shell script to test the performance of the 13 DNS root servers from your locati
 
 # Generic Informations
 
-Includes DNS root servers by default: 
+Includes the 13 DNS root servers by default: 
 * Verisign (198.41.0.4)
 * University of Southern California (199.9.14.201)
 * Cogent Communications (192.33.4.12) 
@@ -19,7 +19,7 @@ Includes DNS root servers by default:
 * ICANN (199.7.83.42)
 * WIDE (202.12.27.33)
 
-Domains included to test provided by Cisco Umbrella:
+Domains included by default to test provided by Cisco Umbrella:
 * netflix.com
 * google.com
 * cloud.netflix.com
@@ -35,7 +35,6 @@ Domains included to test provided by Cisco Umbrella:
 * preapp.prod.partner.netflix.net
 * data.microsoft.com
 * nrdp-ipv6.prod.ftl.netflix.com
-* www.google.com
 * events.data.microsoft.com
 * windowsupdate.com
 * ctldl.windowsupdate.com
