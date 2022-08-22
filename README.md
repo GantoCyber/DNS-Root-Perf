@@ -74,6 +74,7 @@ This script is prepared for run on UNIX-Like OS's. Your system needs `bash` shel
  $ git clone https://github.com/GantoCyber/DNS-Root-Perf
  $ cd DNS-Root-Perf
  $ bash dnsperf.sh
+ 
 Be sure that you are alone in this network for this test and that you are connected by cable to your network (no wifi, it is not stable), this will give real results.
                                     Average                 Timeout                 Reliabiliy
 Verisign                            44.35 ms                0/195                   %100.00                 | 198.41.0.4            Verisign
