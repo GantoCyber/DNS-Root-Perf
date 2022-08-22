@@ -4,7 +4,7 @@ Shell script to test the performance of the most popular public DNS resolvers fr
 
 # Generic Informations
 
-* Includes DNS root servers by default: 
+Includes DNS root servers by default: 
 * Verisign (198.41.0.4)
 * University of Southern California (199.9.14.201)
 * Cogent Communications (192.33.4.12) 
@@ -18,8 +18,8 @@ Shell script to test the performance of the most popular public DNS resolvers fr
 * RIPE (193.0.14.129)
 * ICANN (199.7.83.42)
 * WIDE (202.12.27.33)
-* 
-* Domains included to test by default:
+
+Domains included to test by default:
 * netflix.com
 * google.com
 * cloud.netflix.com
