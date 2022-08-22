@@ -19,7 +19,7 @@ Includes DNS root servers by default:
 * ICANN (199.7.83.42)
 * WIDE (202.12.27.33)
 
-Domains included to test by default:
+Domains included to test provided by Cisco Umbrella:
 * netflix.com
 * google.com
 * cloud.netflix.com
