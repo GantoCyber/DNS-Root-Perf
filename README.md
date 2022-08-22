@@ -74,39 +74,21 @@ This script is prepared for run on UNIX-Like OS's. Your system needs `bash` shel
  $ git clone https://github.com/GantoCyber/DNS-Root-Perf
  $ cd DNS-Root-Perf
  $ bash dnsperf.sh
-                        Average     Timeout     Reliabiliy
-AdGuard                 80.22 ms    0/250       %100.00     | 176.103.130.130 (dns.adguard.com)
-AlernateDNS             160.26 ms   44/250      %82.40      | 23.253.163.53   (dns2.alternate-dns.com)
-CleanBrowsing           59.79 ms    0/250       %100.00     | 185.228.168.9   (security-filter-dns.cleanbrowsing.org)
-Cloudflare              24.02 ms    0/250       %100.00     | 1.1.1.1         (one.one.one.one)
-Comodo                  63.42 ms    0/250       %100.00     | 8.26.56.26      (ns1.recursive.dnsbycomodo.com)
-DNS.Watch               71.36 ms    0/250       %100.00     | 84.200.69.80    (resolver1.dns.watch)
-DynDNS                  59.77 ms    0/250       %100.00     | 216.146.35.35   (resolver1.dyndnsinternetguide.com)
-FreeDNS-Frankfurt       82.16 ms    0/250       %100.00     | 37.235.1.174    (resolver3.freedns.zone)
-FreeDNS-Vienna          73.74 ms    0/250       %100.00     | 37.235.1.174    (resolver.freedns.zone)
-Freenom                 120.89 ms   0/250       %100.00     | 80.80.80.80     (-)
-Google                  73.45 ms    0/250       %100.00     | 8.8.8.8         (dns.google)
-Hurricane-Electric      63.91 ms    0/250       %100.00     | 74.82.42.42     (ordns.he.net)
-Level3-CenturyLink      61.12 ms    0/250       %100.00     | 209.244.0.3     (resolver1.level3.net.)
-Level3-GTEI             65.01 ms    0/250       %100.00     | 4.2.2.1         (b.resolvers.level3.net)
-Neustar-DNSAdvantage    65.51 ms    0/250       %100.00     | 156.154.70.1    (-)
-Norton-ConnectSafe      58.18 ms    0/250       %100.00     | 199.85.126.10   (-)
-OpenDNS                 63.34 ms    0/250       %100.00     | 208.67.222.222  (dns.opendns.com)
-OpenNIC-Frankfurt       71.89 ms    44/250      %82.40      | 94.16.114.254   (ns11.de.dns.opennic.glue)
-OpenNIC-Moscow          120.10 ms   0/250       %100.00     | 91.217.137.37   (ns5.ru.dns.opennic.glue)
-PuntCAT                 106.55 ms   0/250       %100.00     | 109.69.8.51     (-)
-Quad9                   85.95 ms    1/250       %99.60      | 9.9.9.9         (dns.quad9.net)
-SafeDNS                 80.90 ms    0/250       %100.00     | 195.46.39.39    (dns1.safedns.com)
-UncensoredDNS           83.74 ms    0/250       %100.00     | 91.239.100.100  (anycast.censurfridns.dk)
-VeriSign                71.88 ms    0/250       %100.00     | 64.6.64.6       (recpubns1.nstld.net)
-Yandex                  107.19 ms   0/250       %100.00     | 77.88.8.1       (dns.yandex.ru)
-114DNS[CN]              167.64 ms   0/250       %100.00     | 114.114.114.114 (public1.114dns.com)
-AliDNS[CN]              330.68 ms   73/250      %70.80      | 223.5.5.5       (public1.alidns.com)
-Baidu[CN]               296.86 ms   7/250       %97.20      | 180.76.76.76    (public-dns-a.baidu.com)
-CNNIC-SDNS[CN]          325.94 ms   92/250      %63.20      | 1.2.4.8         (public1.sdns.cn)
-DNSpai[CN]              310.96 ms   95/250      %62.00      | 101.226.4.6     (-)
-DNSPod[CN]              190.11 ms   4/250       %98.40      | 119.29.29.29    (pdns.dnspod.cn)
-OneDNS[CN]              292.04 ms   16/250      %93.60      | 117.50.10.10    (-)
+Be sure that you are alone in this network for this test and that you are connected by cable to your network (no wifi, it is not stable), this will give real results.
+                                    Average                 Timeout                 Reliabiliy
+Verisign                            44.35 ms                0/195                   %100.00                 | 198.41.0.4            Verisign
+University_of_Southern_California   43.81 ms                0/195                   %100.00                 | 199.9.14.201          University_of_Southern_California
+Cogent_Communications               39.45 ms                0/195                   %100.00                 | 192.33.4.12           Cogent_Communications
+University_of_Maryland              36.07 ms                0/195                   %100.00                 | 199.7.91.13           University_of_Maryland
+NASA                                36.19 ms                0/195                   %100.00                 | 192.203.230.10        NASA
+Internet_Systems_Consortium_Inc.    36.09 ms                0/195                   %100.00                 | 192.5.5.241           Internet_Systems_Consortium_Inc.
+US_Department_of_Defense            95.33 ms                0/195                   %100.00                 | 192.112.36.4          US_Department_of_Defense
+US_Army                             46.15 ms                0/195                   %100.00                 | 198.97.190.53         US_Army
+Netnod                              48.65 ms                0/195                   %100.00                 | 192.36.148.17         Netnod
+Verisign                            44.38 ms                0/195                   %100.00                 | 192.58.128.30         Verisign
+RIPE                                52.65 ms                0/195                   %100.00                 | 193.0.14.129          RIPE
+ICANN                               36.20 ms                0/195                   %100.00                 | 199.7.83.42           ICANN
+WIDE                                56.15 ms                0/195                   %100.00                 | 202.12.27.33          WIDE
 ```
 
 To sort with the fastest first, you can run the script like `$ ./dnsperf.sh | sort -k 2 -n`. Beware that when running the scipt like that there will be no output until the script finishes and note that it can take too long to respond. Another alternative way to sort output especially if you already ran the script is  `$ sort -k 2 -n <<< "COPY_AND_PASTE_OUTPUT_HERE"`.
