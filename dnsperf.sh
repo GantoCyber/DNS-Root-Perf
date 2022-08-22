@@ -8,7 +8,7 @@
 echo "Be sure that you are alone in this network for this test and that you are connected by cable to your network (no wifi, it is not stable), this will give real results."
 
 # Test repeat count.
-TEST_COUNT=2
+TEST_COUNT=5
 
 # Providers to test. Duplicated providers are ok!
 PROVIDERS="
