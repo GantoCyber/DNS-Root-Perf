@@ -1,6 +1,6 @@
-# Public DNS Resolvers Performance Tester Script
+# DNS Root Servers Performance Tester Script
 
-Shell script to test the performance of the most popular public DNS resolvers from your location.
+Shell script to test the performance of the 13 DNS root servers from your location.
 
 # Generic Informations
 
