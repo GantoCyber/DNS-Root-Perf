@@ -90,6 +90,7 @@ Verisign                            44.38 ms                0/195               
 RIPE                                52.65 ms                0/195                   %100.00                 | 193.0.14.129          RIPE
 ICANN                               36.20 ms                0/195                   %100.00                 | 199.7.83.42           ICANN
 WIDE                                56.15 ms                0/195                   %100.00                 | 202.12.27.33          WIDE
+Lower time (ms) is better, choose the fastest and most reliable for you.
 ```
 
 To sort with the fastest first, you can run the script like `$ ./dnsperf.sh | sort -k 2 -n`. Beware that when running the scipt like that there will be no output until the script finishes and note that it can take too long to respond. Another alternative way to sort output especially if you already ran the script is  `$ sort -k 2 -n <<< "COPY_AND_PASTE_OUTPUT_HERE"`.
