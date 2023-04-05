@@ -131,7 +131,7 @@ for PROVIDER in $PROVIDERS; do
         printf "%-24s" "%$RELIABLILITY"
         printf "%-24s" "| $PROVIDER_IP"
         echo "$PROVIDER_FQDN"
-        echo "Lower time (ms) is better, choose the fastest and most reliable for you."
+        
 done
 
 exit 0;
